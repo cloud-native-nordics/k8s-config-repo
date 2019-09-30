@@ -1,12 +1,12 @@
 apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
-  name: website-prod
-  namespace: production
+  name: website-staging
+  namespace: staging
   annotations:
     flux.weave.works/automated: "false"
 spec:
-  releaseName: website-prod
+  releaseName: website-staging
   chart:
     git: git@github.com:cloud-native-nordics/k8s-config-repo
     path: charts/cloud-native-nordics-default
@@ -30,8 +30,8 @@ spec:
         certmanager.k8s.io/cluster-issuer: letsencrypt-prod
       path: /
       hosts:
-      - v2.cloudnativenordics.com
+      - staging.cloudnativenordics.com
       tls:
       - secretName: website
         hosts:
-          - v2.cloudnativenordics.com
+          - staging.cloudnativenordics.com
