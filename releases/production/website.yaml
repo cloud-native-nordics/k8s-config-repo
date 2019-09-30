@@ -35,9 +35,6 @@ spec:
         - secretName: website
           hosts:
             - v2.cloudnativenordics.com
-    deployment:
-      volumeMounts: []
-      volumes: []
     resources:
       requests:
         memory: "128Mi"
@@ -45,6 +42,3 @@ spec:
       limits:
         memory: "256Mi"
         cpu: "250m"
-    nodeSelector: {}
-    tolerations: []
-    affinity: {}
