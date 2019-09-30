@@ -35,10 +35,3 @@ spec:
         - secretName: website
           hosts:
             - v2.cloudnativenordics.com
-    resources:
-      requests:
-        memory: "128Mi"
-        cpu: "125m"
-      limits:
-        memory: "256Mi"
-        cpu: "250m"
