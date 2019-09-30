@@ -27,3 +27,11 @@ spec:
         - name: http
           containerPort: {{ .Values.service.port }}
           protocol: TCP
+{{- with .Values.command }}
+          command:
+{{ toYaml . | indent 12 }}
+{{- end -}}
+{{- with .Values.env }}
+          env:
+{{ toYaml . | indent 12 }}
+{{- end }}
