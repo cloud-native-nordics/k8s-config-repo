@@ -1,12 +1,12 @@
 apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
-  name: website-staging
+  name: stats-api-staging
   namespace: staging
   annotations:
     flux.weave.works/automated: "false"
 spec:
-  releaseName: website-staging
+  releaseName: stats-api-staging
   chart:
     git: git@github.com:cloud-native-nordics/k8s-config-repo
     path: charts/cloud-native-nordics-default
@@ -14,14 +14,14 @@ spec:
   values:
     replicaCount: 1
     image:
-      repository: cloudnativenordics/website
+      repository: cloudnativenordics/stats-api
       tag: 1.0.1
       pullPolicy: IfNotPresent
     service:
       type: ClusterIP
-      port: 80
-    fullnameOverride: "website"
-    nameOverride: "website"
+      port: 8080
+    fullnameOverride: "stats-api"
+    nameOverride: "stats-api"
     ingress:
       enabled: true
       annotations:
@@ -30,8 +30,19 @@ spec:
         certmanager.k8s.io/cluster-issuer: letsencrypt-prod
       path: /
       hosts:
-      - web.staging.cloudnativenordics.com
+      - stats-api.staging.cloudnativenordics.com
       tls:
-      - secretName: website
+      - secretName: stats-api
         hosts:
-          - web.staging.cloudnativenordics.com
+        - stats-api.staging.cloudnativenordics.com
+      command:
+        - ./app
+        - --v=5
+        - --logtostderr=true
+        - --slack-token=$(SLACK_TOKEN)
+      env:
+        - name: SLACK_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: slack
+              key: token
