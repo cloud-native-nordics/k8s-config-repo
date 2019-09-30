@@ -1,0 +1,23 @@
+replicaCount: 1
+image:
+  repository: cloudnativenordics/website
+  tag: 1.0.1
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 80
+fullnameOverride: "website"
+nameOverride: "website"
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+  path: /
+  hosts:
+    - v2.cloudnativenordics.com
+  tls:
+    - secretName: website
+      hosts:
+        - v2.cloudnativenordics.com
