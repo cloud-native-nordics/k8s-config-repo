@@ -29,6 +29,15 @@ spec:
           certmanager.k8s.io/cluster-issuer: letsencrypt-prod
     grafana:
       enabled: true
+      grafana.ini:
+        users:
+          viewers_can_edit: false
+        auth:
+          disable_login_form: false
+          disable_signout_menu: false
+        auth.anonymous:
+          enabled: true
+          org_role: Viewer
       ingress:
         enabled: true
         hosts:
