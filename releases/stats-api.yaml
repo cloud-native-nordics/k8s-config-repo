@@ -17,7 +17,7 @@ spec:
     replicaCount: 1
     image:
       repository: cloudnativenordics/stats-api
-      tag: master-3878b94
+      tag: master-47c179d
     service:
       type: ClusterIP
       port: 8080
