@@ -32,14 +32,14 @@ spec:
       - secretName: stats-api
         hosts:
         - stats-api.cloudnativenordics.com
-      command:
-      - ./app
-      - --v=5
-      - --logtostderr=true
-      - --slack-token=$(SLACK_TOKEN)
-      env:
-      - name: SLACK_TOKEN
-        valueFrom:
-          secretKeyRef:
-            name: slack
-            key: token
+    command:
+    - ./app
+    - --v=5
+    - --logtostderr=true
+    - --slack-token=$(SLACK_TOKEN)
+    env:
+    - name: SLACK_TOKEN
+      valueFrom:
+        secretKeyRef:
+          name: slack
+          key: token

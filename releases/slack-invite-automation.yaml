@@ -32,12 +32,12 @@ spec:
         hosts:
         - invite.cloudnativenordics.com
     env:
-    - name: SLACK_TOKEN
-      valueFrom:
-        secretKeyRef:
-          name: slack
-          key: token
-    - name: COMMUNITY_NAME
-      value: "Cloud Native Nordics"
-    - name: SLACK_URL
-      value: "cloud-native-nordics.slack.com"
+      - name: SLACK_TOKEN
+        valueFrom:
+          secretKeyRef:
+            name: slack
+            key: token
+      - name: COMMUNITY_NAME
+        value: "Cloud Native Nordics"
+      - name: SLACK_URL
+        value: "cloud-native-nordics.slack.com"
