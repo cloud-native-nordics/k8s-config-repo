@@ -16,7 +16,7 @@ spec:
     replicaCount: 1
     image:
       repository: cloudnativenordics/slack-invite-automation
-      tag: latest
+      tag: 0.0.1
     service:
       type: ClusterIP
       port: 3000
