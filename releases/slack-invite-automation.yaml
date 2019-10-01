@@ -1,0 +1,43 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: slack-invite-automation
+  namespace: default
+  annotations:
+    flux.weave.works/automated: "false"
+spec:
+  releaseName: slack-invite-automation
+  chart:
+    git: git@github.com:cloud-native-nordics/k8s-config-repo
+    path: charts/cloud-native-nordics-default
+    ref: master
+  values:
+    replicaCount: 1
+    image:
+      repository: cloudnativenordics/slack-invite-automation
+      tag: latest
+    service:
+      type: ClusterIP
+      port: 3000
+    fullnameOverride: "slack-invite-automation"
+    nameOverride: "slack-invite-automation"
+    ingress:
+      enabled: true
+      path: /
+      hosts:
+      - invite.cloudnativenordics.com
+      tls:
+      - secretName: slack-invite-automation
+        hosts:
+        - invite.cloudnativenordics.com
+      env:
+      - name: SLACK_TOKEN
+        valueFrom:
+          secretKeyRef:
+            name: slack
+            key: token
+      - name: COMMUNITY_NAME
+        value: "Cloud Native Nordics"
+      - name: SLACK_URL
+        value: "cloud-native-nordics.slack.com"
