@@ -15,8 +15,6 @@ spec:
     prometheusOperator:
       createCustomResource: false
     prometheus:
-      prometheusSpec:
-        externalUrl: prometheus.cloudnativenordics.com
       ingress:
         enabled: true
         hosts:
