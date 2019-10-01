@@ -1,0 +1,44 @@
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: prometheus-operator
+  namespace: default
+  annotations:
+    flux.weave.works/automated: "false"
+spec:
+  releaseName: prometheus-operator
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: prometheus-operator
+    version: 6.11.0
+  values:
+    prometheusOperator:
+      createCustomResource: false
+    prometheus:
+      prometheusSpec:
+        externalUrl: prometheus.cloudnativenordics.com
+      ingress:
+        enabled: true
+        hosts:
+        - prometheus.cloudnativenordics.com
+        tls:
+        - hosts:
+          - prometheus.cloudnativenordics.com
+          secretName: prometheus
+        annotations:
+          kubernetes.io/ingress.class: nginx
+          kubernetes.io/tls-acme: "true"
+          certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+    grafana:
+      enabled: true
+      ingress:
+        enabled: true
+        hosts:
+        - grafana.cloudnativenordics.com
+        tls:
+        - hosts:
+          - grafana.cloudnativenordics.com
+          secretName: prometheus
+
+
+
