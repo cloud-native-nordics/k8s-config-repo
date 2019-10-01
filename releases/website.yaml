@@ -1,3 +1,4 @@
+---
 apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
@@ -16,7 +17,7 @@ spec:
     replicaCount: 1
     image:
       repository: cloudnativenordics/website
-      tag: 1.0.1
+      tag: master-5529f64
     service:
       type: ClusterIP
       port: 80
@@ -30,4 +31,4 @@ spec:
       tls:
       - secretName: website
         hosts:
-          - v2.cloudnativenordics.com
+        - v2.cloudnativenordics.com
