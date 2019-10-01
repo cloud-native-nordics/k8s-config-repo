@@ -29,6 +29,10 @@ spec:
           certmanager.k8s.io/cluster-issuer: letsencrypt-prod
     grafana:
       enabled: true
+      admin:
+        existingSecret: grafana-admin-credentials
+        userKey: admin-user
+        passwordKey: admin-password
       grafana.ini:
         users:
           viewers_can_edit: false
