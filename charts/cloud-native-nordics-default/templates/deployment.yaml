@@ -28,10 +28,10 @@ spec:
           containerPort: {{ .Values.service.port }}
           protocol: TCP
 {{- with .Values.command }}
-          command:
-{{ toYaml . | indent 12 }}
+        command:
+{{ toYaml . | indent 8 }}
 {{- end -}}
 {{- with .Values.env }}
-          env:
-{{ toYaml . | indent 12 }}
+        env:
+{{ toYaml . | indent 8 }}
 {{- end }}
