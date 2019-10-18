@@ -17,7 +17,7 @@ spec:
     replicaCount: 1
     image:
       repository: cloudnativenordics/website
-      tag: master-5529f64
+      tag: master-test
     service:
       type: ClusterIP
       port: 80
