@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+  labels:
+    app: stats-api
+  name: stats-api
+  namespace: default
+spec:
+  rules:
+  - host: stats-api.cloudnativenordics.com
+    http:
+      paths:
+      - backend:
+          serviceName: stats-api
+          servicePort: http
+        path: /
+  tls:
+  - hosts:
+    - stats-api.cloudnativenordics.com
+    secretName: stats-api

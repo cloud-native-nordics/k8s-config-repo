@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+  labels:
+    app: website
+  name: website
+  namespace: default
+spec:
+  rules:
+  - host: v2.cloudnativenordics.com
+    http:
+      paths:
+      - backend:
+          serviceName: website
+          servicePort: http
+        path: /
+  tls:
+  - hosts:
+    - v2.cloudnativenordics.com
+    secretName: website
