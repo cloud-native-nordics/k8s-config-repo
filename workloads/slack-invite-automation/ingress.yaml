@@ -6,19 +6,19 @@ metadata:
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
   labels:
-    app: website
-  name: website
+    app: slack-invite-automation
+  name: slack-invite-automation
   namespace: default
 spec:
   rules:
-  - host: v2.cloudnativenordics.com
+  - host: invite.cloudnativenordics.com
     http:
       paths:
       - backend:
-          serviceName: website
+          serviceName: slack-invite-automation
           servicePort: http
         path: /
   tls:
   - hosts:
-    - v2.cloudnativenordics.com
-    secretName: website
+    - invite.cloudnativenordics.com
+    secretName: slack-invite-automation
