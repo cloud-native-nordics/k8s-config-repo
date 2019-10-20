@@ -2,14 +2,14 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: stats-api
-  name: stats-api
+    app: website
+  name: website
   namespace: default
 spec:
   ports:
   - name: http
-    port: 8080
+    port: 80
     protocol: TCP
     targetPort: http
   selector:
-    app: stats-api
+    app: website
