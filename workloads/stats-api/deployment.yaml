@@ -1,3 +1,4 @@
+---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -38,7 +39,7 @@ spec:
             secretKeyRef:
               key: token
               name: slack
-        image: cloudnativenordics/stats-api:master-test
+        image: cloudnativenordics/stats-api:master-eba28a6
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
