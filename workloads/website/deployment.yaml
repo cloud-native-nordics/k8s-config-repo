@@ -1,3 +1,4 @@
+---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -27,7 +28,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: cloudnativenordics/website:master-test
+        image: cloudnativenordics/website:master-69a3aeb
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
