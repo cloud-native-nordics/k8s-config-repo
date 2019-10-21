@@ -4,8 +4,8 @@ metadata:
   name: stats-api
   namespace: default
   annotations:
-    flux.weave.works/automated: "true"
-    flux.weave.works/tag.app: glob:master-*
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.app: glob:master-*
   labels:
     app: stats-api
 spec:
