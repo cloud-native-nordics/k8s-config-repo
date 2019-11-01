@@ -18,7 +18,15 @@ spec:
           serviceName: slack-invite-automation
           servicePort: http
         path: /
+  - host: cloudnativenordics.com
+    http:
+      paths:
+      - backend:
+          serviceName: slack-invite-automation
+          servicePort: http
+        path: /
   tls:
   - hosts:
     - www.cloudnativenordics.com
+    - cloudnativenordics.com
     secretName: slack-invite-automation
