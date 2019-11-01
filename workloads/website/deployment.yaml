@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: cloudnativenordics/website:master-263f7cf
+        image: cloudnativenordics/website:master-e960b08
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
