@@ -11,7 +11,7 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: invite.cloudnativenordics.com
+  - host: www.cloudnativenordics.com
     http:
       paths:
       - backend:
@@ -20,5 +20,5 @@ spec:
         path: /
   tls:
   - hosts:
-    - invite.cloudnativenordics.com
+    - www.cloudnativenordics.com
     secretName: slack-invite-automation
