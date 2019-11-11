@@ -11,14 +11,7 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: www.cloudnativenordics.com
-    http:
-      paths:
-      - backend:
-          serviceName: slack-invite-automation
-          servicePort: http
-        path: /
-  - host: cloudnativenordics.com
+  - host: invite.cloudnativenordics.com
     http:
       paths:
       - backend:
@@ -27,6 +20,5 @@ spec:
         path: /
   tls:
   - hosts:
-    - www.cloudnativenordics.com
-    - cloudnativenordics.com
+    - invite.cloudnativenordics.com
     secretName: slack-invite-automation

@@ -11,7 +11,14 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: v2.cloudnativenordics.com
+  - host: www.cloudnativenordics.com
+    http:
+      paths:
+      - backend:
+          serviceName: website
+          servicePort: http
+        path: /
+  - host: cloudnativenordics.com
     http:
       paths:
       - backend:
@@ -20,5 +27,6 @@ spec:
         path: /
   tls:
   - hosts:
-    - v2.cloudnativenordics.com
+    - www.cloudnativenordics.com
+    - cloudnativenordics.com
     secretName: website
