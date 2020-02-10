@@ -39,7 +39,7 @@ spec:
             secretKeyRef:
               key: token
               name: slack
-        image: cloudnativenordics/stats-api:master-de9af43
+        image: cloudnativenordics/stats-api:master-41c6b96
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
