@@ -1,4 +1,4 @@
-# k8s-config-repo
+# k8s-config-repo 
 "GitOps" repo for Cloud Native Nordics k8s environment. This repo controls the applications running in the kubernetes environment available to the Cloud Native Nordics community. 
 
 ## Kubernetes-based Infrastructure for a Static Site
